@@ -19,27 +19,27 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="<?= base_url('dashboard/index'); ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
 
             <!-- Nav Item - profil -->
             <li class="nav-item">
-                <a class="nav-link" href="profile.html">
+                <a class="nav-link" href="<?= base_url('user/index'); ?>">
                     <i class="fas fa-fw fa-regular fa-user"></i>
                     <span>My Profile</span></a>
 
              <!-- Nav Item - Tutor -->
             <li class="nav-item">
-                <a class="nav-link" href="tutor.html">
+                <a class="nav-link" href="tutor/index">
                     <i class="fas fa-fw fa-solid fa-question"></i>
                     <span>Tutorial</span></a>
 
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                <button class="rounded-circle  border-0" id="sidebarToggle"></button>
             </div>
 
         </ul>
