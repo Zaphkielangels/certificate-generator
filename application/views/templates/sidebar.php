@@ -24,23 +24,29 @@
                     <span>Dashboard</span></a>
             </li>
 
-            <!-- Nav Item - profil -->
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('sertifikat/generate_sertifikat'); ?>">
+                    <i class="fas fa-fw fa-solid fa-plus"></i>
+                    <span>Generate Certificate</span></a>
+
+                <!-- Nav Item - profil -->
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('user/index'); ?>">
                     <i class="fas fa-fw fa-regular fa-user"></i>
                     <span>My Profile</span></a>
 
-             <!-- Nav Item - Tutor -->
+                <!-- Nav Item - Tutor -->
             <li class="nav-item">
                 <a class="nav-link" href="tutor/index">
                     <i class="fas fa-fw fa-solid fa-question"></i>
                     <span>Tutorial</span></a>
 
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle  border-0" id="sidebarToggle"></button>
-            </div>
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle  border-0" id="sidebarToggle"></button>
+                </div>
 
         </ul>
         <!-- End of Sidebar -->

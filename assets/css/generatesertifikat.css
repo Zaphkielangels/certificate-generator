@@ -1,0 +1,298 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background-color: #e9f1fa;
+}
+
+header {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.container {
+  width: 95%;
+  margin-inline: auto;
+}
+
+
+
+.navbar.scrolling-active {
+  background-color: #0c1c62;
+  padding: 30px 0;
+}
+
+.navbar .box-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline: auto;
+}
+
+.navbar .box-navbar .logo h1 {
+  color: black;
+  font-size: 24px;
+}
+
+.navbar .box-navbar .menu {
+  display: flex;
+  column-gap: 20px;
+}
+
+.navbar .box-navbar .menu li {
+  list-style-type: none;
+}
+
+.navbar .box-navbar .menu li a {
+  text-decoration: none;
+  color: black;
+  padding: 10px 15px 10px 15px;
+}
+
+.menu a .gg-profile:hover {
+  color: #0c1c62; /* Ubah warna ikon ketika dihover */
+}
+
+.navbar .box-navbar .menu .active a {
+  border-bottom: 3px solid;
+}
+
+.navbar .box-navbar .menu li a:hover {
+  border-bottom: 3px solid;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+}
+
+.menu-bar {
+  color: white;
+  font-size: 24px;
+  display: none;
+}
+
+
+
+
+
+.form-inner {
+  width: 50%;
+  max-width: 500px;
+  padding: 5px;
+  margin: 0 28px;
+  border-radius: 5px;
+}
+
+.user-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.input-box:nth-child(2n) {
+  justify-content: end;
+  margin-left: 20px;
+}
+
+.input-box input {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  height: 50px;
+  width: 380px;
+  outline: none;
+  font-size: 1rem;
+  color: #0c1c62;
+  margin-top: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0 15px;
+  
+}
+
+.input-box input::placeholder {
+  color: #a0aec0;
+}
+
+.input-box input:focus {
+  border: 2px solid #0c1c62;
+}
+
+.input-box label {
+  font-size: 18px;
+  font-weight: 500;
+  color: #0c1c62;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 600;
+  color: #0c1c62;
+  margin-bottom: 30px;
+}
+
+/* Tombol Submit */
+.input-box button {
+  margin: 30px 320px;
+  width: 150px;
+  height: 50px;
+  background-color: #0c1c62;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.input-box button:hover {
+  background-color: #1a365d;
+}
+
+/* Menyembunyikan teks di dalam input */
+.input-box input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  right: 10px;
+  background-color: transparent;
+  color: transparent;
+}
+
+/* Menempatkan teks latar belakang di belakang input */
+.input-box input[type="date"]::before {
+  content: attr(placeholder);
+  position: absolute;
+  right: 10px;
+  color: #a0aec0; /* Warna teks latar belakang */
+}
+
+/* Mengubah tampilan input */
+.input-box input[type="date"] {
+  padding-right: 20px; /* Menyesuaikan jarak untuk placeholder */
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 2rem 2rem;
+  margin: 0 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  /* background-color: red; */
+}
+section {
+
+  padding: 10px;
+  text-align: left;
+  margin-left: 100px;
+  max-width: 1000px;
+  font-size: 24px;
+}
+
+.card.active {
+  border: 2px solid #2c3e50;
+}
+
+.card a, a.cards {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card span {
+  font-size: 48px;
+}
+
+/* CSS for Dropdown Menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+/* Styling for dropdown items */
+.dropdown-item {
+  display: block;
+  padding: 10px;
+  text-decoration: none; /* Remove underline by default */
+  color: #333;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+/* Remove underline on hover */
+.dropdown-item:hover {
+  text-decoration: none;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+
+  header {
+    padding: 10px 0;
+  }
+
+  .navbar .box-navbar .logo h1 {
+    font-size: 20px;
+  }
+
+  .navbar .box-navbar .menu {
+    display: none;
+  }
+
+  .menu-bar {
+    display: block;
+  }
+
+  section {
+    padding: 50px;
+    margin-left: 0;
+  }
+
+  .input-box input {
+    width: 100%;
+  }
+}
+

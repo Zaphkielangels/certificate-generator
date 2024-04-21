@@ -1,32 +1,58 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
 
+  <!-- Page Heading -->
+  <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
 
-
-
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-
-                    <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="img-fluid rounded-start" >
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><?= $user['name']; ?></h5>
-        <p class="card-text"><?= $user['email']; ?></p>
-        <p class="card-text"><small class="text-body-secondary">Member since <?= date('d F Y', $user['date_created']); ?></small></p>
+  <div class="row">
+    <div class="col-lg-4 mb-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="img-fluid rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;" alt="Profile Picture">
+          <h5 class="card-title"><?= $user['name']; ?></h5>
+        </div>
       </div>
     </div>
+
+    <div class="col-lg-8">
+      <?= $this->session->flashdata('message'); ?>
+
+      <?= form_open_multipart('user/edit'); ?>
+
+      <div class="form-group row">
+        <label for="email" class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="email" name="email" value="<?= $user['email']; ?>" readonly>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="name" class="col-sm-3 col-form-label">Full Name *</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="name" name="name" value="<?= set_value('name', $user['name']); ?>">
+          <?= form_error('name', '<small class="text-danger">', '</small>'); ?>
+        </div>
+      </div>
+
+      <div class="form-group row mb-4">
+        <label for="image" class="col-sm-3 col-form-label">Change Picture</label>
+        <div class="col-sm-9">
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="image" name="image">
+            <label class="custom-file-label" for="image">Choose file(Max 2Mb)</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-9 offset-sm-3">
+          <button type="submit" class="btn btn-primary">Update Profile</button>
+        </div>
+      </div>
+
+      <?= form_close(); ?>
+    </div>
   </div>
+
 </div>
-
-                </div>
-                <!-- /.container-fluid -->
-
-            </div>
-            <!-- End of Main Content -->
-
-            
+<!-- /.container-fluid -->
