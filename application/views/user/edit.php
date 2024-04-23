@@ -39,8 +39,18 @@
                 <div class="col-sm-9">
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="image" name="image">
-                        <label class="custom-file-label" for="image">Choose file(Max 2Mb)</label>
+                        <label class="custom-file-label" for="image">Choose file (Max 2MB)</label>
                     </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="password" class="col-sm-3 col-form-label">Password</label>
+                <div class="col-sm-6">
+                    <input type="password" class="form-control" id="currentpassword" name="currentpassword" value="<?= set_value('currentpassword', $user['password']); ?>" readonly>
+                </div>
+                <div class="col-sm-3">
+                    <a href="<?= base_url('user/changepassword'); ?>" class="btn btn-sm btn-danger">Change Password</a>
                 </div>
             </div>
 
