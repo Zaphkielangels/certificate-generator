@@ -93,10 +93,43 @@ class Auth extends CI_Controller
                 'date_created' => time()
             ];
             $this->db->insert('user', $data);
+
+            // if ($this->_sendEmail()) {
+            //     return true;
+            // } else {
+            //     echo $this->email->print_debugger();
+            //     die;
+            // }
+
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Congratulation! your account has been created. Please Login</div>');
             redirect('auth');
         }
     }
+
+
+    // private function _sendEmail()
+    // {
+    //     $config  = [
+    //         'protocol' => 'smtp',
+    //         'smtp_host' => 'ssl://smtp.googlemail.com',
+    //         'smtp_user' => 'certificategenrator.id@gmail.com',
+    //         'smtp_pass' => 'snhl wblf yxuu nwsx',
+    //         'smtp_port' => '587',
+    //         'mailtype'  => 'html',
+    //         'charset'   => 'utf-8',
+    //         'newline' => "\r\n"
+    //     ];
+
+
+    //     $this->load->library('email', $config);
+
+    //     $this->email->from('certificategenrator.id@gmail.com', 'certificate generator');
+    //     $this->email->to('abd.rohman8889@gmail.com');
+    //     $this->email->subject('testing');
+    //     $this->email->message('Hello Gan');
+
+    //     $this->email->send();
+    // }
 
     public function logout()
     {
