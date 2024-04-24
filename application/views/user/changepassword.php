@@ -3,7 +3,9 @@
 
     <div class="row">
         <div class="col-lg-6">
-            <?= $this->session->flashdata('message'); ?>
+            <div id="notification" class="alert alert-success" role="alert">
+                <?php echo $this->session->flashdata('message'); ?>
+            </div>
 
 
             <form action="<?= base_url('user/changepassword'); ?>" method="post">

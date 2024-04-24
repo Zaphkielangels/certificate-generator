@@ -7,7 +7,13 @@
 
     <!-- Custom scripts for all pages-->
     <script src="<?= base_url('assets/'); ?>js/sb-admin-2.min.js"></script>
+    <script>
+        // Tunggu 3 detik, lalu sembunyikan notifikasi
+        setTimeout(function() {
+            document.getElementById('notification').style.display = 'none';
+        }, 3000); // 3000 milidetik = 3 detik
+    </script>
 
-</body>
+    </body>
 
-</html>
+    </html>

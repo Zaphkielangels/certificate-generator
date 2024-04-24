@@ -9,10 +9,14 @@ class User extends CI_Controller
         parent::__construct();
         $this->load->library('form_validation');
         $this->load->library('upload'); // Load library upload untuk proses upload gambar
+        // Kecuali untuk metode 'login'
     }
 
     public function index()
     {
+        if (!$this->session->userdata('email')) {
+            redirect('auth'); // Redirect ke halaman login jika tidak ada session email
+        }
         $data['title'] = 'My Profile';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
