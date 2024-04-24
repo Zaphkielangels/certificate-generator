@@ -135,6 +135,7 @@ class Auth extends CI_Controller
     {
         $this->session->unset_userdata('email');
 
+
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Logout success</div>');
         redirect('auth');
     }

@@ -15,8 +15,8 @@
     </div>
 
     <div class="col-lg-8">
-      <div id="notification" class="alert alert-success" role="alert">
-        <?php echo $this->session->flashdata('message'); ?>
+      <div id="notification" class="" role="alert">
+
       </div>
 
       <?= form_open_multipart('user/edit'); ?>

@@ -37,8 +37,8 @@
 
                 <!-- Nav Item - Tutor -->
             <li class="nav-item">
-                <a class="nav-link" href="tutor/index">
-                    <i class="fas fa-fw fa-solid fa-question"></i>
+                <a class="nav-link" href="<?= base_url('tutorial/index'); ?>">
+                    <i class=" fas fa-fw fa-solid fa-question"></i>
                     <span>Tutorial</span></a>
 
                 <!-- Divider -->

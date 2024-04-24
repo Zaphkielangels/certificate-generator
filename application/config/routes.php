@@ -52,6 +52,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $route['default_controller'] = 'auth';
 $route['sertifikat/generate_sertifikat'] = 'GenerateSertifikat';
 $route['dashboard/dashboard'] = 'dashboard';
+$route['tutorial/index'] = 'tutorial';
 $route['auth/logout'] = 'auth/logout';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
