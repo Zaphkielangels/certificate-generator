@@ -14,7 +14,7 @@
     <header class="">
         <img src="path/to/your/logo.png" alt="Logo">
         <div class="right-buttons">
-            <a href="#">Home</a>
+            <a href="<?php echo base_url('landing'); ?>">Home</a>
             <a href="<?php echo base_url('sertifikat/generate_sertifikat'); ?>">Create</a>
             <a href="#">Tutorial</a>
             <a href="<?php echo base_url('auth') ?>">Sign In</a>

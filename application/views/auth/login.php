@@ -12,7 +12,7 @@
                         <div class="col-lg">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h2 style="color: #1e90ff; font-weight: bold;">Certificate Generator</h2>
+                                    <h2 style="color: #0c1c62; font-weight: bold;">Certificate Generator</h2>
                                     <p>Blockchain-based</p>
                                 </div>
                                 <div id="notification" class="alert alert-success" role="alert">
