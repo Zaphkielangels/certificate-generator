@@ -54,7 +54,7 @@
 
     <!-- Contact Us Section -->
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="mailto:certificategenrator.id@gmail.com">
             <i class="fas fa-fw fa-envelope"></i>
             <span>Contact Us</span>
         </a>
