@@ -24,9 +24,10 @@
 
     <section>
         <div>
-            <h2>Mulai Kelola Sertifikat Anda dengan Mudah dan Aman Hari Ini!</h2>
-            <p>Buat sertifikat mudah hanya dengan beberapa klik dengan (namaweb).
-                Unggah desain dan generate sertifikat atau bagikan sebagai PDF secara instan.
+            <h2>Start Managing Your Certificates Easily and Securely Today!</h2>
+            <p>Where certificate management meets blockchain technology!
+                Take control of your certificates effortlessly and with utmost security.
+                Our innovative platform empowers you to streamline certificate creation, distribution, and verification processes like never before.
             </p>
             <div class="button-container">
                 <button type="button" class="btn-buat-sertifikat">Buat Sertifikat</button>
