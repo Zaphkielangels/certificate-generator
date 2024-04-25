@@ -47,6 +47,28 @@
     }, 3000); // 3000 milidetik = 3 detik
 </script>
 
+<!-- Script JavaScript untuk mengatur visibilitas informasi kontak -->
+<script>
+    // Ambil elemen sidebar dan informasi kontak
+    const sidebar = document.getElementById('accordionSidebar');
+    const contactInfo = document.querySelector('.contact-info');
+
+    // Fungsi untuk menyembunyikan informasi kontak saat toggle sidebar diperkecil
+    function toggleContactInfo() {
+        if (sidebar.classList.contains('toggled')) {
+            // Sidebar diperkecil, sembunyikan informasi kontak
+            contactInfo.style.display = 'none';
+        } else {
+            // Sidebar dalam keadaan normal, tampilkan informasi kontak
+            contactInfo.style.display = 'block';
+        }
+    }
+
+    // Panggil fungsi saat toggle sidebar diubah (diklik)
+    document.getElementById('sidebarToggle').addEventListener('click', toggleContactInfo);
+</script>
+
+
 </body>
 
 </html>

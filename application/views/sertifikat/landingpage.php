@@ -16,7 +16,7 @@
         <div class="right-buttons">
             <a href="<?php echo base_url('landing'); ?>">Home</a>
             <a href="<?php echo base_url('sertifikat/generate_sertifikat'); ?>">Create</a>
-            <a href="#">Tutorial</a>
+            <a href="<?= base_url('tutorial/index'); ?>">Tutorial</a>
             <a href="<?php echo base_url('auth') ?>">Sign In</a>
             <a href="<?php echo base_url('auth/registration') ?>" class="btn-sign-up">Sign Up</a>
         </div>

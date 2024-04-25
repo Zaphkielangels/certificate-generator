@@ -10743,6 +10743,25 @@ a:focus {
   justify-content: center;
 }
 
+
+/* Styling untuk informasi kontak pada sidebar */
+.contact-info {
+  list-style: none;
+  padding-left: 20px;
+  margin-top: 10px;
+  display: block;
+  overflow: hidden; /* Mengatur overflow untuk menghindari teks yang terpotong */
+  max-height: 0; /* Set maksimum tinggi untuk menyembunyikan informasi kontak */
+  transition: max-height 0.3s ease; /* Animasi perubahan visibilitas */
+}
+
+/* Menampilkan informasi kontak saat sidebar tidak dalam mode responsif */
+.sidebar:not(.toggled) .contact-info {
+  max-height: 100px; /* Tinggi maksimum informasi kontak saat sidebar normal */
+}
+
+
+
 .btn-circle.btn-sm, .btn-group-sm > .btn-circle.btn {
   height: 1.8rem;
   width: 1.8rem;
