@@ -1,0 +1,138 @@
+
+body {
+    font-family: Poppins;
+    margin: 0;
+    padding: 0;
+    background-color: #E9F1FA;
+}
+
+
+header {
+    color: #000000;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.bg-gradient-primary {
+    background-color: #0c1c62;
+    background-image: linear-gradient(180deg, #0c1c62 10%, #224abe 100%);
+  }
+
+
+header img {
+    height: 40px; /* Atur ukuran logo */
+    margin-left: 10px; /* Jarak kiri */
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 10px;
+}
+header a:hover {
+    background-color: #0C1C62;
+    padding: 10px;
+    color: white;
+}
+section {
+    padding: 100px;
+    text-align: left;
+    margin-left: 75px; /* Menengahkan section */
+    max-width: 1000px; /* Lebar maksimum section */
+    font-size: 24px;
+    display: flex; /* Menjadikan section dan gambar dalam satu baris */
+    p{
+        font-size: 20px;
+    }
+}
+section img {
+
+    height: 450px; /* Atur ukuran logo */
+    margin-right: 0px; /* Jarak antara gambar dan teks */
+  
+}
+section button {
+    font-family: Poppins;
+    font-size: 18px; /* Ukuran font tombol */
+    color: #000000;
+}
+section button:hover {
+    background-color: #0C1C62; /* Ubah warna background tombol saat hover */
+    color: white; /* Ubah warna teks tombol saat hover */
+}
+.right-buttons {
+    display: flex;
+    align-items: center;
+}
+.right-buttons a {
+    color: #000000;
+    text-decoration: none;
+    margin-left: 20px;
+    
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Menyusun elemen secara berdampingan dengan jarak di antara */
+    margin-top: 20px;
+}
+
+/* Gaya untuk tombol "Buat Sertifikat" */
+.btn-buat-sertifikat {
+    font-family: Poppins;
+    font-size: 18px; /* Ukuran font tombol */
+    color: #fff; /* Warna teks tombol */
+    background-color: #0c1c62; /* Warna latar belakang tombol */
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* Gaya untuk tombol "Buat Sertifikat" saat dihover */
+.btn-buat-sertifikat:hover {
+    background-color: #224abe; /* Ubah warna latar belakang saat tombol dihover */
+}
+
+/* Gaya untuk tombol "Pilih Template" */
+.btn-pilih-template {
+    font-family: Poppins;
+    font-size: 18px;
+    color: #000000;
+    background-color: #fff;
+    border: 2px solid #0c1c62; /* Tambahkan garis tepi */
+    padding: 10px 20px;
+    margin-top: 20px;
+    margin-left: 20px; /* Jarak dari tombol sebelumnya */
+    cursor: pointer;
+}
+
+/* Gaya untuk tombol "Pilih Template" saat dihover */
+.btn-pilih-template:hover {
+    background-color: #0c1c62;
+    color: #fff;
+}
+
+/* Gaya untuk tombol "Sign Up" */
+/* Gaya untuk tombol "Sign Up" */
+.btn-sign-up {
+    color: #fff !important; /* Warna teks tombol (putih) */
+    background-color: #0c1c62; /* Warna latar belakang tombol */
+    padding: 10px 20px; /* Padding tombol */
+    border: none; /* Menghilangkan border */
+    font-family: Poppins;
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none; /* Menghilangkan garis bawah pada tautan */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transisi perubahan warna */
+}
+
+/* Gaya untuk tombol "Sign Up" saat dihover */
+.btn-sign-up:hover {
+    background-color: #224abe; /* Ubah warna latar belakang saat tombol dihover */
+    color: #000 !important; /* Ubah warna teks menjadi hitam saat tombol dihover */
+}
+
+
