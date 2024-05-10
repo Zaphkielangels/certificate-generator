@@ -83,53 +83,115 @@ class Auth extends CI_Controller
             $this->load->view('auth/registration');
             $this->load->view('templates/auth_footer');
         } else {
+            $email = $this->input->post('email', true);
             $data = [
                 'name' => htmlspecialchars($this->input->post('name', true)),
-                'email' => htmlspecialchars($this->input->post('email', true)),
+                'email' => htmlspecialchars($email),
                 'image' => 'default.jpg',
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                 'role_id' => 2,
-                'is_active' => 1,
+                'is_active' => 0,
                 'date_created' => time()
             ];
+            //siapkan token
+            $token = base64_encode(openssl_random_pseudo_bytes(32));
+            $user_token = [
+                'email' => $email,
+                'token' => $token,
+                'date_created' => time()
+            ];
+
+
             $this->db->insert('user', $data);
+            $this->db->insert('user_token', $user_token);
 
-            // if ($this->_sendEmail()) {
-            //     return true;
-            // } else {
-            //     echo $this->email->print_debugger();
-            //     die;
-            // }
+            $this->_sendEmail($token, 'verify');
 
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Congratulation! your account has been created. Please Login</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Congratulation! your account has been created. Please check your email to verify</div>');
             redirect('auth');
         }
     }
 
 
-    // private function _sendEmail()
-    // {
-    //     $config  = [
-    //         'protocol' => 'smtp',
-    //         'smtp_host' => 'ssl://smtp.googlemail.com',
-    //         'smtp_user' => 'certificategenrator.id@gmail.com',
-    //         'smtp_pass' => 'snhl wblf yxuu nwsx',
-    //         'smtp_port' => '587',
-    //         'mailtype'  => 'html',
-    //         'charset'   => 'utf-8',
-    //         'newline' => "\r\n"
-    //     ];
+    private function _sendEmail($token, $type)
+    {
+        $config  = [
+            'protocol' => 'smtp',
+            'smtp_crypto' => 'tls',
+            'smtp_host' => 'smtp.gmail.com',
+            'smtp_port' => 587,
+            'smtp_user' => 'certificategenrator.id@gmail.com',
+            'smtp_pass' => 'jyge befp oajp avtk',
+            'mailtype'  => 'html',
+            'charset'   => 'utf-8',
+            'newline' => "\r\n"
+        ];
 
 
-    //     $this->load->library('email', $config);
+        $this->load->library('email', $config);
 
-    //     $this->email->from('certificategenrator.id@gmail.com', 'certificate generator');
-    //     $this->email->to('abd.rohman8889@gmail.com');
-    //     $this->email->subject('testing');
-    //     $this->email->message('Hello Gan');
+        $this->email->from('certificategenrator.id@gmail.com', 'certificate generator');
+        $this->email->to($this->input->post('email'));
 
-    //     $this->email->send();
-    // }
+        if ($type == 'verify') {
+            $this->email->subject('Account Verification');
+            // Tautan yang dibuat dalam format HTML
+            $message = 'Click this link to verify your account: ' . base_url() . 'auth/verify?email=' . urlencode($this->input->post('email')) . '&token=' . urlencode($token) . '';
+            $this->email->message($message);
+            $this->db->insert('user_token', ['email' => $this->input->post('email'), 'token' => $token, 'date_created' => time()]);
+        }
+
+        if ($this->email->send()) {
+            return true;
+        } else {
+            echo $this->email->print_debugger();
+            die;
+        }
+    }
+
+
+    public function verify()
+    {
+        $email = $this->input->get('email');
+        $token = $this->input->get('token');
+
+        $user = $this->db->get_where('user', ['email' => $email])->row_array();
+        if ($user) {
+            $user_token = $this->db->get_where('user_token', ['token' => $token])->row_array();
+            if ($user_token) {
+                // Periksa apakah token masih berlaku (tidak lebih dari 24 jam)
+                if (time() - $user_token['date_created'] < 24 * 3600) {
+                    // Verifikasi akun pengguna
+                    $this->db->set('is_active', 1);
+                    $this->db->where('email', $email);
+                    $this->db->update('user');
+
+                    // Hapus token setelah verifikasi berhasil
+                    $this->db->delete('user_token', ['email' => $email]);
+
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Congratulations! Your account has been activated.</div>');
+                    redirect('auth');
+                } else {
+                    // Token kedaluwarsa, beritahu pengguna dan minta mereka mendaftar ulang
+                    $this->db->delete('user_token', ['email' => $email]);
+                    $this->db->delete('user', ['email' => $email]);
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Verification link has expired. Please register again.</div>');
+                    redirect('auth/registration');
+                }
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Invalid token!</div>');
+                redirect('auth');
+            }
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Account activation failed! Wrong email</div>');
+            redirect('auth');
+        }
+    }
+
+
+
+
+
 
     public function logout()
     {

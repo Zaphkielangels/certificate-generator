@@ -15,9 +15,10 @@
                                     <h2 style="color: #0c1c62; font-weight: bold;">Certificate Generator</h2>
                                     <p>Blockchain-based</p>
                                 </div>
-                                <div id="notification" class="alert alert-success" role="alert">
-                                    <?php echo $this->session->flashdata('message'); ?>
-                                </div>
+
+                                <?php echo $this->session->flashdata('message'); ?>
+
+
 
 
                                 <form class="user" method="post" action="<?= base_url('auth'); ?>">
